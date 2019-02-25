@@ -1,20 +1,20 @@
 from classification_models import Classifiers
-from classification_models import resnext
+# from classification_models import resnext
 
-from . import inception_resnet_v2 as irv2
-from . import inception_v3 as iv3
-from . import mobilenet as mbn
-from . import mobilenetv2 as mbn2
+# from . import inception_resnet_v2 as irv2
+# from . import inception_v3 as iv3
+# from . import mobilenet as mbn
+# from . import mobilenetv2 as mbn2
 
 # replace backbones with others, which have corrected padding mode in first pooling
-Classifiers._models.update({
-    'inceptionresnetv2': [irv2.InceptionResNetV2, irv2.preprocess_input],
-    'inceptionv3': [iv3.InceptionV3, iv3.preprocess_input],
-    'resnext50': [resnext.ResNeXt50, resnext.models.preprocess_input],
-    'resnext101': [resnext.ResNeXt101, resnext.models.preprocess_input],
-    'mobilenet': [mbn.MobileNet, mbn.preprocess_input],
-    'mobilenetv2': [mbn2.MobileNetV2, mbn2.preprocess_input],
-})
+# Classifiers._models.update({
+    # 'inceptionresnetv2': [irv2.InceptionResNetV2, irv2.preprocess_input],
+    # 'inceptionv3': [iv3.InceptionV3, iv3.preprocess_input],
+    # 'resnext50': [resnext.ResNeXt50, resnext.models.preprocess_input],
+    # 'resnext101': [resnext.ResNeXt101, resnext.models.preprocess_input],
+    # 'mobilenet': [mbn.MobileNet, mbn.preprocess_input],
+    # 'mobilenetv2': [mbn2.MobileNetV2, mbn2.preprocess_input],
+# })
 
 DEFAULT_FEATURE_LAYERS = {
 
@@ -34,31 +34,31 @@ DEFAULT_FEATURE_LAYERS = {
     'resnet152': ('stage4_unit1_relu1', 'stage3_unit1_relu1', 'stage2_unit1_relu1', 'relu0'),
 
     # ResNeXt
-    'resnext50': ('stage4_unit1_relu1', 'stage3_unit1_relu1', 'stage2_unit1_relu1', 'relu0'),
-    'resnext101': ('stage4_unit1_relu1', 'stage3_unit1_relu1', 'stage2_unit1_relu1', 'relu0'),
+    # 'resnext50': ('stage4_unit1_relu1', 'stage3_unit1_relu1', 'stage2_unit1_relu1', 'relu0'),
+    # 'resnext101': ('stage4_unit1_relu1', 'stage3_unit1_relu1', 'stage2_unit1_relu1', 'relu0'),
 
-    # Inception
-    'inceptionv3': (228, 86, 16, 9),
-    'inceptionresnetv2': (594, 260, 16, 9),
+    # # Inception
+    # 'inceptionv3': (228, 86, 16, 9),
+    # 'inceptionresnetv2': (594, 260, 16, 9),
 
-    # DenseNet
-    'densenet121': (311, 139, 51, 4),
-    'densenet169': (367, 139, 51, 4),
-    'densenet201': (479, 139, 51, 4),
+    # # DenseNet
+    # 'densenet121': (311, 139, 51, 4),
+    # 'densenet169': (367, 139, 51, 4),
+    # 'densenet201': (479, 139, 51, 4),
 
-    # SE models
-    'seresnet18': ('stage4_unit1_relu1', 'stage3_unit1_relu1', 'stage2_unit1_relu1', 'relu0'),
-    'seresnet34': ('stage4_unit1_relu1', 'stage3_unit1_relu1', 'stage2_unit1_relu1', 'relu0'),
-    'seresnet50': (233, 129, 59, 4),
-    'seresnet101': (522, 129, 59, 4),
-    'seresnet152': (811, 197, 59, 4),
-    'seresnext50': (1065, 577, 251, 4),
-    'seresnext101': (2442, 577, 251, 4),
-    'senet154': (6837, 1614, 451, 12),
+    # # SE models
+    # 'seresnet18': ('stage4_unit1_relu1', 'stage3_unit1_relu1', 'stage2_unit1_relu1', 'relu0'),
+    # 'seresnet34': ('stage4_unit1_relu1', 'stage3_unit1_relu1', 'stage2_unit1_relu1', 'relu0'),
+    # 'seresnet50': (233, 129, 59, 4),
+    # 'seresnet101': (522, 129, 59, 4),
+    # 'seresnet152': (811, 197, 59, 4),
+    # 'seresnext50': (1065, 577, 251, 4),
+    # 'seresnext101': (2442, 577, 251, 4),
+    # 'senet154': (6837, 1614, 451, 12),
 
-    # Mobile Nets
-    'mobilenet': ('conv_pw_11_relu', 'conv_pw_5_relu', 'conv_pw_3_relu', 'conv_pw_1_relu'),
-    'mobilenetv2': ('block_13_expand_relu', 'block_6_expand_relu', 'block_3_expand_relu', 'block_1_expand_relu'),
+    # # Mobile Nets
+    # 'mobilenet': ('conv_pw_11_relu', 'conv_pw_5_relu', 'conv_pw_3_relu', 'conv_pw_1_relu'),
+    # 'mobilenetv2': ('block_13_expand_relu', 'block_6_expand_relu', 'block_3_expand_relu', 'block_1_expand_relu'),
 
 }
 
