@@ -16,7 +16,7 @@ old_args_map = {
 
 @legacy_support(old_args_map)
 def FPN(backbone_name='vgg16',
-        input_shape=(None, None, 3),
+        input_shape=(3, None, None),
         input_tensor=None,
         classes=21,
         activation='softmax',
