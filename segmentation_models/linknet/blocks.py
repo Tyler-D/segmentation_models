@@ -31,7 +31,7 @@ def ConvRelu(filters,
                    use_bias=not(use_batchnorm))(x)
 
         if use_batchnorm:
-            x = BatchNormalization(name=bn_name)(x)
+            x = BatchNormalization(name=bn_name, axis=1)(x)
 
         x = Activation('relu', name=relu_name)(x)
 
@@ -108,7 +108,7 @@ def UpsampleBlock(filters,
                     **kwargs)(input_tensor)
 
         if use_batchnorm:
-            x = BatchNormalization(name=bn_name)(x)
+            x = BatchNormalization(name=bn_name, axis=1)(x)
 
         x = Activation('relu', name=relu_name)(x)
 

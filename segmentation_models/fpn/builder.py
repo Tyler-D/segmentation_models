@@ -75,7 +75,7 @@ def build_fpn(backbone,
             p = ResizeImage(upsample_rate, interpolation=interpolation)(p)
         upsampled_pyramid.append(p)
 
-    x = Concatenate()(upsampled_pyramid)
+    x = Concatenate(axis=1)(upsampled_pyramid)
 
     # final convolution
     n_filters = segmentation_filters * len(pyramid)

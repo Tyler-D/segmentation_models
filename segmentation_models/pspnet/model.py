@@ -17,7 +17,7 @@ def _get_layer_by_factor(backbone_name, factor):
 
 
 def _shape_guard(factor, shape):
-    h, w = shape[:2]
+    h, w = shape[1:]
     min_size = factor * 6
 
     res = (h % min_size != 0 or w % min_size != 0 or
@@ -37,7 +37,7 @@ old_args_map = {
 
 @legacy_support(old_args_map)
 def PSPNet(backbone_name='vgg16',
-           input_shape=(384, 384, 3),
+           input_shape=(3, 384, 384),
            classes=21,
            activation='softmax',
            encoder_weights='imagenet',

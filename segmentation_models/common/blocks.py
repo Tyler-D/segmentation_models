@@ -14,7 +14,7 @@ def Conv2DBlock(n_filters, kernel_size,
         x = Conv2D(n_filters, kernel_size, use_bias=not(use_batchnorm),
                    name=name+'_conv', **kwargs)(input_tensor)
         if use_batchnorm:
-            x = BatchNormalization(name=name+'_bn',)(x)
+            x = BatchNormalization(name=name+'_bn', axis=1)(x)
         x = Activation(activation, name=name+'_'+activation)(x)
 
         return x

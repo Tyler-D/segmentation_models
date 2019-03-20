@@ -58,18 +58,18 @@ def DUC(factor=(8, 8)):
 
     def layer(input_tensor):
 
-        h, w, c = int_shape(input_tensor)[1:]
+        c, h, w = int_shape(input_tensor)[1:]
         H = h * factor
         W = w * factor
 
         x = Conv2DBlock(c*factor**2, (1,1),
                         padding='same',
                         name='duc_{}'.format(factor))(input_tensor)
-        x = Permute((3, 1, 2))(x)
+        # x = Permute((3, 1, 2))(x)
         x = Reshape((c, factor, factor, h, w))(x)
         x = Permute((1, 4, 2, 5, 3))(x)
         x = Reshape((c, H, W))(x)
-        x = Permute((2, 3, 1))(x)
+        # x = Permute((2, 3, 1))(x)
         return x
     return layer
 
@@ -101,6 +101,6 @@ def PyramidPoolingModule(**params):
         x3 = InterpBlock(3, feature_map_shape, **_params)(input_tensor)
         x6 = InterpBlock(6, feature_map_shape, **_params)(input_tensor)
 
-        x = Concatenate()([input_tensor, x1, x2, x3, x6])
+        x = Concatenate(axis=1)([input_tensor, x1, x2, x3, x6])
         return x
     return module
